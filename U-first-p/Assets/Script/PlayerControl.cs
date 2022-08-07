@@ -30,21 +30,20 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             rigi.velocity += new Vector2(speed * Time.deltaTime, 0f);
-            if (rigi.velocity.x > 1f)
-            { 
-                sprite.flipX = false;
-                anim.SetBool("isRun", true);                
-            }
+            sprite.flipX = false;
+            
+                
+            anim.SetBool("isRun", true);                
+            
 
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             rigi.velocity -= new Vector2(speed * Time.deltaTime, 0f);
-            if(rigi.velocity.x < -1f) 
-            {
-                sprite.flipX = true;
-                anim.SetBool("isRun", true);
-            }
+            sprite.flipX = true;
+                            
+            anim.SetBool("isRun", true);
+            
             
         }
 
@@ -55,7 +54,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) 
         {
-            anim.SetBool("isGround", false);
+            anim.SetBool("isJump", false);
             rigi.AddForce(new Vector2(0f, 10f),ForceMode2D.Impulse);          
         }
         Debug.Log(rigi.velocity.x);
